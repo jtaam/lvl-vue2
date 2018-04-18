@@ -10,7 +10,7 @@
             <input v-model="password" type="password" name="" value="" class="form-control" placeholder="Password">
           </div>
           <!-- /.form-group -->
-          <button class="btn btn-success pull-right">Login</button>
+          <button @click='test' class="btn btn-success pull-right">Login</button>
         </div>
         <!-- /.panel-body -->
       </div>
@@ -27,6 +27,14 @@ export default {
     return {
       email:'',
       password:''
+    }
+  },
+  methods:{
+    test(){
+      this.$http.get("http://127.0.0.1:8000/api/test")
+        .then(function(response){
+          console.log(response);
+        })
     }
   }
 }
